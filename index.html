@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bunny Focus Timer 🐰</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="petals" aria-hidden="true"></div>
+
+  <main class="cottage">
+    <header>
+      <h1>Bunny Focus Timer</h1>
+      <p class="subtitle">a cosy little corner to get things done ✿</p>
+    </header>
+
+    <section class="card timer-card">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 220 220" aria-hidden="true">
+          <defs>
+            <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffb3c7" />
+              <stop offset="100%" stop-color="#f6a37a" />
+            </linearGradient>
+          </defs>
+          <circle class="ring-track" cx="110" cy="110" r="96" />
+          <circle class="ring-progress" cx="110" cy="110" r="96" />
+        </svg>
+
+        <!-- Netherland dwarf, broken orange & white -->
+        <svg id="bunny" class="bunny" viewBox="0 0 120 120" role="img" aria-label="Orange and white Netherland dwarf bunny">
+          <g class="ears">
+            <ellipse class="ear left" cx="45" cy="30" rx="9" ry="20" fill="#f4a261" />
+            <ellipse cx="45" cy="32" rx="4.5" ry="13" fill="#ffc2d1" />
+            <ellipse class="ear right" cx="75" cy="30" rx="9" ry="20" fill="#fff8f2" />
+            <ellipse cx="75" cy="32" rx="4.5" ry="13" fill="#ffc2d1" />
+          </g>
+          <ellipse cx="60" cy="96" rx="34" ry="20" fill="#fff8f2" />
+          <ellipse cx="78" cy="94" rx="14" ry="12" fill="#f4a261" />
+          <circle cx="60" cy="66" r="30" fill="#fff8f2" />
+          <path d="M33 58 Q36 40 54 40 Q48 56 40 74 Q32 70 33 58Z" fill="#f4a261" />
+          <circle cx="82" cy="54" r="6" fill="#f4a261" />
+          <ellipse cx="60" cy="58" rx="3" ry="9" fill="#f4a261" opacity=".75" />
+          <g class="eyes">
+            <ellipse cx="48" cy="64" rx="4" ry="4.6" fill="#3b2a2a" />
+            <ellipse cx="72" cy="64" rx="4" ry="4.6" fill="#3b2a2a" />
+            <circle cx="49.5" cy="62.5" r="1.4" fill="#fff" />
+            <circle cx="73.5" cy="62.5" r="1.4" fill="#fff" />
+          </g>
+          <circle cx="40" cy="74" r="5" fill="#ffb3c7" opacity=".6" />
+          <circle cx="80" cy="74" r="5" fill="#ffb3c7" opacity=".6" />
+          <path class="nose" d="M57 72 L63 72 L60 75.5Z" fill="#ff8fab" />
+          <path d="M60 75.5 Q57 79 54 77 M60 75.5 Q63 79 66 77" stroke="#c97b7b" stroke-width="1.3" fill="none" stroke-linecap="round" />
+          <ellipse cx="48" cy="112" rx="8" ry="4" fill="#fff8f2" />
+          <ellipse cx="72" cy="112" rx="8" ry="4" fill="#fff8f2" />
+        </svg>
+
+        <div class="time-display">
+          <span id="time">25:00</span>
+          <span id="status" class="status">ready to hop in</span>
+        </div>
+      </div>
+
+      <div class="length">
+        <button class="pill small" data-step="-5" aria-label="Decrease 5 minutes">−</button>
+        <label>
+          <input id="minutes" type="number" min="1" max="180" value="25" />
+          <span>min</span>
+        </label>
+        <button class="pill small" data-step="5" aria-label="Increase 5 minutes">+</button>
+      </div>
+      <div class="presets">
+        <button class="chip" data-min="15">15</button>
+        <button class="chip active" data-min="25">25</button>
+        <button class="chip" data-min="45">45</button>
+        <button class="chip" data-min="60">60</button>
+      </div>
+
+      <div class="controls">
+        <button id="start" class="btn primary">▶ Start</button>
+        <button id="pause" class="btn" disabled>❚❚ Pause</button>
+        <button id="reset" class="btn ghost">↺ Reset</button>
+      </div>
+      <p class="carrots" id="carrots" title="Completed sessions"></p>
+    </section>
+
+    <section class="card event-card" id="eventCard" hidden>
+      <p class="label">🌷 next on your calendar</p>
+      <h2 id="eventTitle"></h2>
+      <p id="eventTime" class="event-time"></p>
+      <p id="eventCountdown" class="event-countdown"></p>
+    </section>
+  </main>
+
+  <script src="js/event.js"></script>
+  <script src="js/petals.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
